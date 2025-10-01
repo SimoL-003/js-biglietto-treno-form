@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./css/style.css">
+    <title>Calcola il prezzo del tuo biglietto</title>
+</head>
+
+<body>
+    <main>
+        <form action="">
+            <div>
+                <label for="name">Nome e Cognome*</label>
+                <input id="name"
+                       type="text"
+                       required>
+            </div>
+            <div>
+                <label for="km">Indica il numero di chilometri che devi percorrere*</label>
+                <input type="number"
+                       id="km"
+                       required>
+            </div>
+            <div>
+                <label for="ticket">Tipologia di biglietto</label>
+                <select name=""
+                        id="ticket"><!-- Capire se si può mettere un info per le tipologie di biglietto -->
+                    <option selected
+                            value="fullPrice">Intero</option>
+                    <option value="under18">Minori</option>
+                    <option value="over65">Senior</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit"
+                        id="send">Calcola ora
+                </button>
+            </div>
+        </form>
+        <section>
+            Card
+        </section>
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
