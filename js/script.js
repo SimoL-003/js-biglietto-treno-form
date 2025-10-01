@@ -6,6 +6,15 @@ const kmInput = document.getElementById("km");
 const ticketInput = document.getElementById("ticket");
 const roundTripInput = document.getElementById("round-trip");
 
+// Elementi della card
+
+const cardElem = document.querySelector(".card")
+const nameElem = document.querySelector(".card .name");
+const kmElem = document.querySelector(".card .km");
+const roundTripElem = document.querySelector(".card .round-trip");
+const discountElem = document.querySelector(".card .discount");
+const priceElem = document.querySelector(".card .price");
+
 // Variabili per il calcolo del biglietto
 
 const priceKm = 0.21;
@@ -17,21 +26,30 @@ const discountOver65 = 0.4;
 formElem.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    nameElem.textContent = nameInput.value;
+    kmElem.innerHTML = `<strong>Validità del biglietto:</strong> ${kmInput.value} km`;
+    if (roundTripInput.checked) {
+        roundTripElem.innerHTML = `<strong>Tipo di biglietto:</strong> Andata e ritorno`;
+    } else {
+        roundTripElem.innerHTML = `<strong>Tipo di biglietto:</strong> Solo andata`;
+    }
+    discountElem.innerHTML = `<strong>Categoria di biglietto:</strong> ${ticketInput.value}`;
+    priceElem.innerHTML = `<h5>Prezzo:</h5> ${calcFinalPrice().toFixed(2)} &euro;`
+    cardElem.classList.remove("d-none");
+
+    // formElem.reset();
+})
+
+function calcFinalPrice() {
     const kmInputNum = parseInt(kmInput.value);
 
     const standardPrice = priceKm * kmInputNum;
     let finalPrice = standardPrice;
 
-    if (ticketInput.value === "over65") {
-        finalPrice = standardPrice - standardPrice * discountOver65;
-    } else if (ticketInput.value === "under18") {
-        finalPrice = standardPrice - standardPrice * discountUnder18;
-    }
+    if (ticketInput.value === "Senior") { finalPrice = standardPrice - standardPrice * discountOver65; }
+    if (ticketInput.value === "Minori") { finalPrice = standardPrice - standardPrice * discountUnder18; }
 
-    if (roundTripInput.checked) {
-        finalPrice = finalPrice * 2;
-    }
+    if (roundTripInput.checked) { finalPrice = finalPrice * 2; }
 
-    let result = finalPrice;
-    console.log(result.toFixed(2));
-})
+    return finalPrice;
+}

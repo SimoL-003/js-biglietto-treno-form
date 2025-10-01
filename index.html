@@ -41,11 +41,11 @@
                                for="ticket">Tipologia di biglietto</label>
                         <select class="form-select"
                                 name=""
-                                id="ticket"><!-- Capire se si può mettere un info per le tipologie di biglietto -->
+                                id="ticket">
                             <option selected
-                                    value="full-price">Intero</option>
-                            <option value="under18">Minori (&lt 18 anni)</option>
-                            <option value="over65">Senior (&gt 65 anni)</option>
+                                    value="Intero">Intero</option>
+                            <option value="Minori">Minori (&lt 18 anni)</option>
+                            <option value="Senior">Senior (&gt 65 anni)</option>
                         </select>
                     </div>
                     <div class="text-end mt-2">
@@ -65,8 +65,26 @@
                 </div>
             </div>
         </form>
-        <section>
+        <section class="mt-5 pt-5">
+            <div class="container">
+                <div class="row d-flex justify-content-center px-3">
+                    <div class="card col-12 col-md-6 d-none">
+                        <div class="card-body">
+                            <p class="mb-1">Nome del passeggero:</p>
+                            <h2 class="card-title name">Nome del passeggero</h2>
+                            <p class="card-text"><small>Questo biglietto è nominativo e ha validità esclusivamente per il numero di chilometri indicati in fase di acquisto. Qualsiasi infrazione sarà punita secondo le normative vigenti.</small></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item km"></li>
+                            <li class="list-group-item round-trip"></li>
+                            <li class="list-group-item discount"></li>
+                        </ul>
+                        <div class="card-body price">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="./js/script.js"></script>
