@@ -1,0 +1,18 @@
+.form .row {
+    border: 1px solid blue;
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+select.title {
+    width: 27%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
+}
+
+input.name {
+    width: 73%;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}

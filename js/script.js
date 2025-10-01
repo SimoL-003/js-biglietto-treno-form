@@ -2,6 +2,7 @@
 
 const formElem = document.querySelector("form");
 const nameInput = document.getElementById("name");
+const titleInput = document.getElementById("title")
 const kmInput = document.getElementById("km");
 const ticketInput = document.getElementById("ticket");
 const roundTripInput = document.getElementById("round-trip");
@@ -26,7 +27,7 @@ const discountOver65 = 0.4;
 formElem.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    nameElem.textContent = nameInput.value;
+    nameElem.textContent = titleInput.value + " " + nameInput.value;
     kmElem.innerHTML = `<strong>Validità del biglietto:</strong> ${kmInput.value} km`;
     if (roundTripInput.checked) {
         roundTripElem.innerHTML = `<strong>Tipo di biglietto:</strong> Andata e ritorno`;
