@@ -4,6 +4,7 @@ const formElem = document.querySelector("form");
 const nameInput = document.getElementById("name");
 const kmInput = document.getElementById("km");
 const ticketInput = document.getElementById("ticket");
+const roundTripInput = document.getElementById("round-trip");
 
 // Variabili per il calcolo del biglietto
 
@@ -14,7 +15,7 @@ const discountOver65 = 0.4;
 // All'invio del form
 
 formElem.addEventListener("submit", function (event) {
-    event.preventDefault(); /* Per non ricaricare la pagina */
+    event.preventDefault();
 
     const kmInputNum = parseInt(kmInput.value);
 
@@ -25,6 +26,10 @@ formElem.addEventListener("submit", function (event) {
         finalPrice = standardPrice - standardPrice * discountOver65;
     } else if (ticketInput.value === "under18") {
         finalPrice = standardPrice - standardPrice * discountUnder18;
+    }
+
+    if (roundTripInput.checked) {
+        finalPrice = finalPrice * 2;
     }
 
     let result = finalPrice;
