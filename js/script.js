@@ -11,10 +11,10 @@ const roundTripInput = document.getElementById("round-trip");
 
 const cardElem = document.querySelector(".card")
 const nameElem = document.querySelector(".card .name");
-const kmElem = document.querySelector(".card .km");
-const roundTripElem = document.querySelector(".card .round-trip");
-const discountElem = document.querySelector(".card .discount");
-const priceElem = document.querySelector(".card .price");
+const kmElem = document.querySelector(".card .km-text");
+const roundTripElem = document.querySelector(".card .round-trip-text");
+const discountElem = document.querySelector(".card .discount-text");
+const priceElem = document.querySelector(".card .price-text");
 
 // Variabili per il calcolo del biglietto
 
@@ -28,14 +28,14 @@ formElem.addEventListener("submit", function (event) {
     event.preventDefault();
 
     nameElem.textContent = titleInput.value + " " + nameInput.value;
-    kmElem.innerHTML = `<strong>Validità del biglietto:</strong> ${kmInput.value} km`;
+    kmElem.innerHTML = `${kmInput.value} km`;
     if (roundTripInput.checked) {
-        roundTripElem.innerHTML = `<strong>Tipo di biglietto:</strong> Andata e ritorno`;
+        roundTripElem.innerHTML = "Andata e ritorno";
     } else {
-        roundTripElem.innerHTML = `<strong>Tipo di biglietto:</strong> Solo andata`;
+        roundTripElem.innerHTML = "Solo andata";
     }
-    discountElem.innerHTML = `<strong>Categoria di biglietto:</strong> ${ticketInput.value}`;
-    priceElem.innerHTML = `<h5>Prezzo:</h5> ${calcFinalPrice().toFixed(2)} &euro;`
+    discountElem.innerHTML = ticketInput.value;
+    priceElem.innerHTML = `${calcFinalPrice().toFixed(2)} &euro;`
     cardElem.classList.remove("d-none");
 
     // formElem.reset();
